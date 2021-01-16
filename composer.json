@@ -1,0 +1,15 @@
+{
+  "require": {
+    "nikolays93/wp-admin-form": "dev-master"
+  },
+  "repositories": [
+    {
+      "type": "git",
+      "url": "https://github.com/nikolays93/wp-admin-form"
+    }
+  ],
+  "require-dev": {
+    "squizlabs/php_codesniffer": "3.*",
+    "wp-coding-standards/wpcs": "2.*"
+  }
+}
