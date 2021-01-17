@@ -54,8 +54,8 @@ add_action(
 	'plugins_loaded',
 	function() {
 		$post_type = new Post_Type();
-		$taxonomy = new Taxonomy();
-		$register = new Register();
+		$taxonomy  = new Taxonomy();
+		$register  = new Register();
 		$shortcode = new Shortcode();
 
 		$register->register_post_type( $post_type );

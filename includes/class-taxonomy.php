@@ -1,6 +1,8 @@
 <?php
 
-class Taxonomy implements Registrator {
+namespace SimpleSlickSlider;
+
+class Taxonomy extends Registrator {
 
 	const DEFAULT_NAME = 'slider';
 
@@ -8,11 +10,7 @@ class Taxonomy implements Registrator {
 		'hierarchical' => false,
 		'show_ui'      => true,
 		'query_var'    => true,
-	)
-
-	public static function get_name() {
-		 return apply_filters( __CLASS__ . '::name', static::DEFAULT_NAME );
-	}
+	);
 
 	private function get_labels() {
 		return apply_filters(

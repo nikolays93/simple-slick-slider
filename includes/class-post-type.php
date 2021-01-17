@@ -1,6 +1,8 @@
 <?php
 
-class Post_Type implements Registrator {
+namespace SimpleSlickSlider;
+
+class Post_Type extends Registrator {
 
 	const DEFAULT_NAME = 'slide';
 
@@ -55,11 +57,6 @@ class Post_Type implements Registrator {
 				'menu_name'          => __( 'Слайды', 'project' ),
 			)
 		);
-
-	}
-
-	public static function get_name() {
-		 return apply_filters( __CLASS__ . '::name', static::DEFAULT_NAME );
 	}
 
 	public function register() {

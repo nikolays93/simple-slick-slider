@@ -1,5 +1,7 @@
 <?php
 
+namespace SimpleSlickSlider;
+
 class Shortcode {
 
 	const DEFAULT_NAME = 'slider';
@@ -54,7 +56,7 @@ class Shortcode {
 			}
 
 			// End slides wrapper.
-			printf( '</div><!-- .slider-%d -->', $atts['id'] )
+			printf( '</div><!-- .slider-%d -->', $atts['id'] );
 		}
 		wp_reset_postdata();
 		return ob_get_clean();
