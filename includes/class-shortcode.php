@@ -15,11 +15,21 @@ class Shortcode {
 		 return apply_filters( __CLASS__ . '::name', static::DEFAULT_NAME );
 	}
 
-	public function show_slider( $atts ) {
-		$query = new WP_Query(
+	public function register( $atts = array() ) {
+		$atts = shortcode_atts(
+			$this->args,
+			$atts,
+			Taxonomy::get_name()
+		);
+
+		if ( ! $atts['id'] = intval( $atts['id'] ) ) {
+			return '';
+		}
+
+		$query = new \WP_Query(
 			array(
 				// Type & Status query args.
-				'post_type'      => POST_TYPE__SLIDE,
+				'post_type'      => Post_Type::get_name(),
 				'post_status'    => 'publish',
 
 				// Order & Orderby query args.
@@ -43,7 +53,7 @@ class Shortcode {
 		ob_start();
 		if ( $query->have_posts() ) {
 			// Start slides wrapper.
-			printf( '<div class="row justify-content-between slider slider_%d">', $atts['id'] );
+			printf( '<div id="slider_%d" class="row justify-content-between slider">', $atts['id'] );
 
 			while ( $query->have_posts() ) {
 				$query->the_post();
@@ -56,24 +66,10 @@ class Shortcode {
 			}
 
 			// End slides wrapper.
-			printf( '</div><!-- .slider-%d -->', $atts['id'] );
+			printf( '</div><!-- #slider_%d -->', $atts['id'] );
 		}
 		wp_reset_postdata();
 		return ob_get_clean();
-	}
-
-	public function register() {
-		$atts = shortcode_atts(
-			$this->args,
-			$atts,
-			Taxonomy::get_name()
-		);
-
-		if ( ! $atts['id'] = intval( $atts['id'] ) ) {
-			return '';
-		}
-
-		return $this->show_slider( $atts );
 	}
 
 	public function how_to_use_field( $actions, $tag ) {
