@@ -40,7 +40,6 @@ if ( ! defined( __NAMESPACE__ . 'PREFIX' ) ) {
 load_plugin_textdomain( DOMAIN, false, basename( PLUGIN_DIR ) . $plugin_data['DomainPath'] );
 
 require_once ABSPATH . 'wp-admin/includes/plugin.php';
-require_once PLUGIN_DIR . 'vendor/autoload.php';
 require_once PLUGIN_DIR . 'includes/autoload.php';
 
 register_activation_hook( __FILE__, array( Register::class, 'activate' ) );
