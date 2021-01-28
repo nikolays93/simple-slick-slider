@@ -37,6 +37,6 @@ class Register {
 
 	public function register_shortcode( $shortcode, $taxonomy ) {
 		add_shortcode( $shortcode::get_name(), array( $shortcode, 'register' ) );
-		add_filter( $taxonomy::get_name() . '_row_actions', 'how_to_use_field', 10, 2 );
+		add_filter( $taxonomy::get_name() . '_row_actions', array( $shortcode, 'how_to_use_field' ), 10, 2 );
 	}
 }
