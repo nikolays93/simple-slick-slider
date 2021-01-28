@@ -85,7 +85,7 @@ class Shortcode {
 
 		?>
 		<div class="form-field">
-			<input type="text" onclick="this.select()" value="<?php echo $shortcode_string; ?> ">
+			<input type="text" onclick="this.select()" value="<?php echo esc_attr( $shortcode_string ); ?> ">
 		</div>
 		<?php
 
